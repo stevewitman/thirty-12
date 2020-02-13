@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx12/material": ["libs/material/src/index.ts"],
+      "@nx12/ui-page-not-found": ["libs/ui-page-not-found/src/index.ts"],
+      "@nx12/ui-toolbar": ["libs/ui-toolbar/src/index.ts"],
+      "@nx12/ui-login": ["libs/ui-login/src/index.ts"],
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

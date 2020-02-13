@@ -17,6 +17,18 @@
     "app12-e2e": {
       "tags": [],
       "implicitDependencies": ["app12"]
+    },
+    "material": {
+      "tags": []
+    },
+    "ui-page-not-found": {
+      "tags": []
+    },
+    "ui-toolbar": {
+      "tags": []
+    },
+    "ui-login": {
+      "tags": []
     }
   }
 }
