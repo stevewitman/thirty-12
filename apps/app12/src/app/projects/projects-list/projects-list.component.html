@@ -4,16 +4,17 @@
 	</mat-card-header>
 	<mat-card-content>
 		<mat-list>
-			<mat-list-item *ngFor="let project of projects">
+			<mat-list-item *ngFor="let project of projects" style="cursor: pointer"
+			(click)="onSelect(project)">
 				<h4>{{ project.title}}</h4>
 				<div align="end">
-					<button mat-icon-button (click)="onDelete(project); $event.stopImmediatePropagation()">
-						<mat-icon>close</mat-icon>
+					<button mat-icon-button (click)="onEdit(project); $event.stopImmediatePropagation()">
+						<mat-icon>edit</mat-icon>
 					</button>
 				</div>
 				<div align="end">
-					<button mat-icon-button (click)="onShow(project); $event.stopImmediatePropagation()">
-						<mat-icon>more_vert</mat-icon>
+					<button mat-icon-button (click)="onDelete(project); $event.stopImmediatePropagation()">
+						<mat-icon>close</mat-icon>
 					</button>
 				</div>
 			</mat-list-item>

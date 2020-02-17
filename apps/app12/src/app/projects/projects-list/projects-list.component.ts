@@ -10,19 +10,23 @@ import { Project } from '@nx12/core-data';
 })
 export class ProjectsListComponent implements OnInit {
 	@Input() projects: Project[];
-	@Output() deleted = new EventEmitter;
+	@Output() deleting = new EventEmitter;
+	@Output() editing = new EventEmitter;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
 	}
 	
-	onDelete(project) {
-		this.deleted.emit(project);
-	}
-
-	onShow(project) {
+	onSelect(project) {
 		this.router.navigate(['/project', project.id]);
 	}
-
+	
+	onEdit(project) {
+		this.editing.emit(project)
+	}
+	
+	onDelete(project) {
+		this.deleting.emit(project);
+	}
 }

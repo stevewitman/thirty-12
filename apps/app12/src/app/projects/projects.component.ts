@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
-import { ProjectsService } from '@nx12/core-data';
+import { ProjectsService, Project } from '@nx12/core-data';
 
 @Component({
   selector: 'nx12-projects',
@@ -9,6 +10,8 @@ import { ProjectsService } from '@nx12/core-data';
 })
 export class ProjectsComponent implements OnInit {
 	projects$;
+	selectedProject: Project;
+	form: FormGroup;
 
   constructor(private projectsService: ProjectsService) { }
 
@@ -25,6 +28,10 @@ export class ProjectsComponent implements OnInit {
 			.subscribe(result => {
 				this.getProjects();
 			});
+	}
+
+	editProject(project) {
+		this.selectedProject = project;
 	}
 
 }
