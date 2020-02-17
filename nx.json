@@ -32,6 +32,9 @@
     },
     "core-data": {
       "tags": []
+    },
+    "core-auth": {
+      "tags": []
     }
   }
 }

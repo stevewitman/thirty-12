@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { AuthService } from '@nx12/core-auth';
 
 @Component({
   selector: 'ui-login',
@@ -8,12 +11,14 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  form: FormGroup;
+	
+	form: FormGroup;
+	destroy$: Subject<boolean> = new Subject()
 
   constructor(
     private router: Router,
-    private formBuilder: FormBuilder
+		private formBuilder: FormBuilder,
+		private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -39,10 +44,15 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.form.get('password')
   }
-
-  onSubmit() {
+	
+	onSubmit() {
     if (this.form.invalid) return;
-    this.router.navigate(['/projects']);
+    this.authService.authenticate(this.form.value).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe(({access_token}) => {
+      localStorage.setItem('token', access_token);
+      this.router.navigate(['/projects']);
+    })
   }
 
 }

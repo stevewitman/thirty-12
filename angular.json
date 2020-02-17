@@ -274,6 +274,37 @@
           "styleext": "scss"
         }
       }
+    },
+    "core-auth": {
+      "projectType": "library",
+      "root": "libs/core-auth",
+      "sourceRoot": "libs/core-auth/src",
+      "prefix": "nx12",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/core-auth/tsconfig.lib.json",
+              "libs/core-auth/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/core-auth/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/core-auth/jest.config.js",
+            "tsConfig": "libs/core-auth/tsconfig.spec.json",
+            "setupFile": "libs/core-auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "styleext": "scss"
+        }
+      }
     }
   },
   "cli": {
