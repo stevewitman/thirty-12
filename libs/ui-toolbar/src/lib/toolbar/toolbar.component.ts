@@ -15,7 +15,6 @@ export class ToolbarComponent implements OnInit {
   }
 
 	onLogout() {
-		console.log('HERE')
 		localStorage.removeItem('token');
 		this.router.navigate(['/login']);
 	}

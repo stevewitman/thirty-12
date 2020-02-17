@@ -11,7 +11,6 @@ export class AuthInterceptor implements HttpInterceptor {
  constructor() {}
  
  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-   console.log(req.url);
    return of([req.url, localStorage.getItem('token')]).pipe(
      switchMap(([url, token]) =>
        iif(

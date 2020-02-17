@@ -14,11 +14,17 @@ import { UiLoginModule } from '@nx12/ui-login';
 import { UiPageNotFoundModule } from '@nx12/ui-page-not-found';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CoreAuthModule } from '@nx12/core-auth';
+import { ProjectsListComponent } from './projects/projects-list/projects-list.component';
+import { ProjectDetailsComponent } from './projects/project-details/project-details.component';
+import { ProjectComponent } from './projects/project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsComponent,
+    ProjectsListComponent,
+    ProjectDetailsComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,

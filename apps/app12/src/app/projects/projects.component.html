@@ -1,1 +1,10 @@
-<p>projects works!</p>
+<div class="row">
+	<div class="column">
+		<nx12-projects-list
+			[projects]="projects$ | async"
+			(deleted)="deleteProject($event)"></nx12-projects-list>
+	</div>
+	<div class="column">
+		<nx12-project-details></nx12-project-details>
+	</div>
+</div>
